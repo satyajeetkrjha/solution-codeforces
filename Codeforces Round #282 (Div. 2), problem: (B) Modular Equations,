@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+ll c=0;
+ll a,b;
+int divisors ( ll n){
+	
+	for (ll i=1;i*i<=n;i++){
+        if (n%i==0 )
+       {
+       	 if (n/i == i && i>b){
+       	 	c++;
+			}
+			else{
+				if(i>b) c++;
+				if(n/i>b) c++;
+			}
+	   }
+         
+	}
+    return c;     
+         
+}
+int main(){
+
+	scanf("%lld%lld",&a,&b);
+	int diff=a-b;
+    if(diff==0){
+     cout<<"infinity"<<endl;
+    	return 0;
+	}
+	if(diff<0){
+		cout<<0<<endl;
+		return 0;
+	}
+else{
+printf("%d\n",divisors(diff));
+	return 0;
+}
+	
+	
+}
