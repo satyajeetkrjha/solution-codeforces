@@ -1,0 +1,40 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+map<char,int > m1;
+map<char ,int> m2;
+set <char > myset;
+//bool visited[200]={false};
+int main()
+{
+
+    string s,t;
+    cin>>s>>t;
+    int n=s.size();int m=t.size();
+
+    for(int i=0;i<s.size();i++)
+       ++ m1[s[i]];
+
+    for(int i=0;i<t.size();i++){
+        ++ m2[t[i]];
+        myset.insert(t[i]);
+    }
+
+    int sum=0;
+    for (std::set<char >::iterator it=myset.begin(); it!=myset.end(); ++it)
+
+    {
+        char c=*it;
+
+        if(m1.count(c)==0){
+            cout<<-1<<endl;
+            return 0;
+        }
+        else{
+            sum+=min(m1[c],m2[c]);
+        }
+
+    }
+    cout<<sum<<endl;
+    return 0;
+}
