@@ -1,0 +1,62 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+vector <int> adj[100005];
+int color[100005];
+bool visited[100005];
+bool isbipartite=true;
+vector <int> g[3];
+void dfs(int u,int c){
+visited[u]=true;
+color[u]=c;
+g[c].push_back(u);
+for(int i=0;i<adj[u].size();i++){
+    int v=adj[u][i];
+    if(color[v]==-1){
+        color[v]=1-color[u];
+        int c=color[v];
+        dfs(v,c);
+    }
+    else{
+        if(color[v]==color[u]){
+            isbipartite=false;
+        }
+    }
+
+}
+
+}
+int main()
+{
+    int n,m;
+    scanf("%d%d",&n,&m);
+    for(int i=1;i<=m;i++){
+        int u,v;
+        cin>>u>>v;
+        adj[u].push_back(v);
+        adj[v].push_back(u);
+    }
+    memset(color,-1,sizeof(color));
+    memset(visited,false,sizeof(visited));
+    for(int i=1;i<=n;i++){
+         if(visited[i]==false){
+            dfs(i,0);
+         }
+    }
+    if(isbipartite==false){
+        cout<<-1<<endl;
+        return 0;
+    }
+    for(int i=0;i<3;i++){
+        if(g[i].size()!=0){
+            cout<<g[i].size()<<endl;
+            for(int j=0;j<g[i].size();j++){
+                cout<<g[i][j]<<" ";
+            }
+            cout<<endl;
+        }
+    }
+
+
+    return 0;
+}
