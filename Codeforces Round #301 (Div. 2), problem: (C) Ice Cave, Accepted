@@ -1,0 +1,100 @@
+#include <bits/stdc++.h>
+using namespace std;
+ int n,m;
+   int visited[505][505];// 1 FOR GOOD CELL ZERO FOR BAD CELL
+  char  matrix[505][505];
+
+   bool used[505][505];
+  void dfs(int a ,int b){
+
+  if(visited[a+1][b]==1 && used[a+1][b]==false && a+1>=1 &&a+1 <=n && b>=1 && b<=m)
+  {
+      used[a+1][b]=true;
+      dfs(a+1,b);
+  }
+  if(visited[a-1][b]==1 && used[a-1][b]==false && a-1>=1 && a-1<=n && b>=1 && b<=m){
+  used[a-1][b]==true;
+  dfs(a-1,b);
+    }
+    if(visited[a][b+1]==1 && used[a][b+1]==false && a>=1 && a<=n &&  b+1>=1 &&b+1<=m){
+        used[a][b+1]=true;
+        dfs(a,b+1);
+    }
+    if(visited[a][b-1]==1 && used[a][b-1]==false && a>=1 && a<=n && b-1>=1 && b-1<=m)
+    {
+        used[a][b-1]=true;
+        dfs(a,b-1);
+
+    }
+    return;
+  }
+
+
+int main()
+{
+    bool flag =false;
+    memset(used,false,sizeof (used));
+  cin>>n>>m;
+  for(int i=1;i<=n;i++){
+    for(int j=1;j<=m;j++){
+       cin>> matrix[i][j];
+       if(matrix[i][j]=='X')
+        visited[i][j]=0;// bad cell
+       else
+        visited[i][j]=1;// good cell
+    }
+  }
+  int r1,c1,r2,c2;
+  cin>>r1>>c1>>r2>>c2;
+  if((r1==r2)&&(c1==c2) &&(visited[r1-1][c1]==1 || visited[r1+1][c1]==1 || visited[r1][c1+1]==1|| visited[r1][c1-1]==1 ))// start cell and finish cell are cell so case1 ,jump to adjacent free cell and come back
+    cout <<"YES"<<endl;
+    else if(((r1+1==r2 || r1-1 ==r2 ) && (c1==c2))|| ((c1+1==c2 || c1-1==c2) && (r1==r2)))// neighbour cell
+    {
+        if(visited[r2][c2]==0)// bad cell
+            cout<<"YES"<<endl;
+        else{// source> destination> adjacent of destination cell>destination
+            if(visited[r2-1][c2]==1 || visited[r2+1][c2]==1 || visited[r2][c2+1]==1 || visited[r2][c2-1]==1)
+            cout<<"YES"<<endl;
+            else
+                cout<<"NO"<<endl;
+
+        }
+    }
+    else {
+    // general case
+
+             int cn=0;
+            if(visited[r2][c2]==0 ){// destination is cracked
+                flag=true;
+                if(visited[r2-1][c2]==1|| visited[r2+1][c2]==1 || visited[r2][c2+1]==1 || visited[r2][c2-1]==1)
+                    cn=1;;
+              //  cout<<"YES"<<endl;
+                visited[r2][c2]=1;// mark it uncracked
+            }
+        //If it's cracked, it must have at least one intact neighbour, and if it's intact, it must have two intact neighbours.
+         dfs(r1,c1);
+         if(flag==true){// destination is cracked
+            if(used[r2][c2]==true && cn>=1)
+                cout<<"YES"<<endl;
+            else
+                cout<<"NO"<<endl;
+
+         }
+         else{// destination is not cracked so count its neighbours
+                int c1=0;
+             if(visited[r2-1][c2]==1) c1++;
+        if(visited[r2+1][c2]==1)c1++;
+        if(visited[r2][c2+1]==1)c1++;
+        if(visited[r2][c2-1]==1)c1++;
+        if(used[r2][c2]==true && c1>=2)
+            cout<<"YES"<<endl;
+        else
+            cout<<"NO"<<endl;
+
+
+
+         }
+
+    }
+
+}
