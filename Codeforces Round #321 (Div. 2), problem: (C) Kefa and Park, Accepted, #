@@ -1,0 +1,46 @@
+#include<bits/stdc++.h>
+using namespace std;
+int n,m,ans=0;
+int cat[100005];
+vector<int> V[100005];
+void dfs(int id,int prev,int ccc){
+
+  if(ccc>m){
+       // cout<<"back to recursion mode"<<endl;
+    return;
+  }
+  bool il=true;
+  for(int i=0;i<V[id].size();i++){
+     // cout<<"v[id].size() is "<<V[id].size()<<endl;
+      int to=V[id][i];
+   // cout<<"VALUE OF i "<<i<<endl;
+   // cout<< "value of root is now "<<id<<endl;
+  // cout<<"to is "<< to<<endl;
+   // cout <<"prev is"<<prev<<endl;
+   // cout<<" EDGE PROCESSED NOW ARE "<<id<<" "<<to<<endl;
+   //cout<<"SO IN DFS FUN ROOT NOW,EDGE IS  "<<to<<" "<<id<<endl;
+    if(to==prev) continue;
+    il=false;
+   // cout<<"IN FOR LOOP IL IS"<<il<<endl;
+    if(cat[to]) dfs(to,id,ccc+1);
+    else dfs(to,id,0);
+  }
+  if(il){
+ //cout<<"NOW iL IS "<<il<<endl;
+  ans++;
+}
+  return;
+}
+int main(){
+  scanf("%d %d",&n,&m);
+  for(int i=1;i<=n;i++) scanf("%d",&cat[i]);
+  for(int i=1;i<n;i++){
+    int a,b;
+    scanf("%d %d",&a,&b);
+    V[a].push_back(b);
+    V[b].push_back(a);
+  }
+  dfs(1,0,cat[1]);
+  printf("%d\n",ans);
+  return 0;
+}
