@@ -1,0 +1,62 @@
+#include <iostream>
+#include <cstdio>
+using namespace std;
+char matrix[505][505];// to accept matrix constraint 500
+int dp2[505][505];//for vertical cells
+ int dp1[505][505];// for horizontal cells
+int main()
+{
+   int r,c;// rows and columns
+   cin>>r>>c;
+
+   for(int i=1;i<=r;i++)
+    {
+        for(int j=1;j<=c;j++){
+
+           cin>> matrix[i][j];
+        }
+    }
+
+      for(int i=1;i<=r;i++)
+        dp1[i][0]=0;//(1,0)(2,0) to be zero as dp1 starts from (1,1)
+        for(int i=1;i<=c;i++)
+            dp1[0][i]=0;//(0,1).(0,2)
+    for(int i=1;i<=r;i++){
+        for(int j=1;j<=c;j++){
+                if((matrix[i][j]=='.')&& (matrix[i][j-1]=='.'))// good cell condition
+          dp1[i][j] =dp1[i][j-1]+dp1[i-1][j]-dp1[i-1][j-1]+1;
+          else
+             dp1[i][j] =dp1[i][j-1]+dp1[i-1][j]-dp1[i-1][j-1];
+        }
+    }
+
+     for(int i=1;i<=c;i++)
+        dp2[0][i]=0;
+     for(int i=1;i<=r;i++)
+        dp2[i][0]=0;
+
+    for(int i=1;i<=c;i++){
+        for(int j=1;j<=r;j++){
+            if((matrix[j][i]=='.')&&( matrix[j-1][i]=='.'))
+                dp2[j][i]=dp2[j-1][i]+dp2[j][i-1]-dp2[j-1][i-1]+1;//(1,3) (2,3),(3,3)
+                else
+                   dp2[j][i]=dp2[j-1][i]+dp2[j][i-1]-dp2[j-1][i-1] ;
+        }
+    }
+
+    int q;
+    cin>>q;
+    while(q--){
+            int sum=0;
+            
+        int r1,c1,r2,c2;    //r1i, c1i, r2i, c2
+        cin>>r1>>c1>>r2>>c2;
+        sum+= dp1[r2][c2]-dp1[r2][c1+1-1]-dp1[r1-1][c2]+dp1[r1-1][c1+1-1];
+        //cout<<" sum1 is "<< sum1<<endl;;
+        sum+=dp2[r2][c2]-dp2[r2][c1-1]-dp2[r1+1-1][c2]+dp2[r1+1-1][c1-1];
+      //  cout<<" sum2 is "<< sum2<<endl;
+
+    cout<<sum<<endl;
+    }
+    return 0;
+}
