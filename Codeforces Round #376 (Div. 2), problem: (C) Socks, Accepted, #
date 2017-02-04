@@ -1,0 +1,67 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+int color[200005];
+vector <int> adj[200005];
+bool visited[2000005];
+int maxii;
+int consize;
+map <int,int> freq;// frequency of color c is f
+void dfs(int u){
+if(visited[u]==true)
+    return ;
+visited[u]=true;
+//cout<<" u is "<<u<<endl;
+consize++;// no of nodes in this cp goes up by 1
+freq[color[u]]++;// increase the frequency for this color
+//cout<<" in dfs consize is "<<consize<<endl;
+//cout<<" color of node u is "<<color[u]<<endl;
+//cout<<" in dfs freq[color[u]] "<<freq[color[u]]<<endl;
+maxii=max(maxii,freq[color[u]]);
+//cout<<"maxii is "<<maxii<<endl;
+for(int i=0;i<adj[u].size();i++){
+    int v=adj[u][i];// neighbor
+    if(visited[v]==true)
+        continue;
+    dfs(v);
+}
+
+
+}
+int main()
+{
+    int n,m,k;
+    memset(visited,false,sizeof(visited));
+    scanf("%d%d%d",&n,&m,&k);
+    for(int i=1;i<=n;i++){
+            int x;
+       scanf("%d",&x);
+       color[i]=x;
+
+    }
+    for(int i=1;i<=m;i++){
+        int u,v;
+        scanf("%d%d",&u,&v);
+        adj[u].push_back(v);
+        adj[v].push_back(u);
+    }
+    int ans=0;
+    for(int i=1;i<=n;i++){
+        if(visited[i]==false){
+                // for this connected components
+                consize=0;
+                 maxii=0;
+                 freq.clear();
+                // cout<<" i is "<<i<<endl;
+                 dfs(i);// carry out dfs with this vertex
+                 //cout<<"consize= "<<consize<<endl;
+                 //cout<<"maxii "<<maxii<<endl;
+                 ans+=consize-maxii;
+
+        }
+
+    }
+   printf("%d\n",ans);
+
+    return 0;
+}
