@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define M 10005
+typedef pair<int,string> pi;
+vector <pi> a[M];// A VECTOR OF PAIRS
+
+int main()
+{
+   int n,m;
+   cin>>n>>m;
+   for(int i=1;i<=n;i++){
+    string s;int x,score;
+    cin>>s>>x>>score;
+    a[x].push_back(make_pair(score,s));
+   }
+  for(int i=1;i<=m;i++){
+    sort(a[i].begin(),a[i].end());
+    reverse(a[i].begin(),a[i].end());
+    if(a[i].size()==2){
+        cout<<a[i][0].second<< " "<<a[i][1].second<<endl;
+        continue;
+    }
+    if(a[i].size()> 2 && (a[i][1].first==a[i][2].first)){
+        cout<<"?"<<endl;
+        continue;
+    }
+    else{
+        cout<<a[i][0].second<<" "<<a[i][1].second<<endl;
+        continue;
+  }
+  }
+
+    return 0;
+}
