@@ -1,0 +1,18 @@
+#include <iostream>
+#include <cstdio>
+#include <math.h>
+using namespace std;
+int main(){
+int n,t;
+scanf("%d%d",&n,&t);// 18 10
+if(t==10 && n==1){
+printf("-1\n");
+return 0;
+}
+if(t==10 && n!=1){
+ t=1;
+}
+printf("%d",t);
+for(int i=1;i<=n-1;i++)
+printf("0");
+}
