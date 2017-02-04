@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+int c1,c2,c3,c4;
+int a[1005];int b[1005];
+
+int checkfun(int arr[],int x){
+int res=0;
+for(int i=1;i<=x;i++){
+    res=res+min(c2,arr[i]*c1);
+}
+res=min(c3,res);
+return res;
+
+}
+int main()
+{
+    cin>>c1>>c2>>c3>>c4;
+    int n,m;
+    cin>>n>>m;
+    for(int i=1;i<=n;i++)
+        cin>>a[i];
+    for(int i=1;i<=m;i++)
+        cin>>b[i];
+        int ans=min(c4,checkfun(a,n)+checkfun(b,m));
+        cout<<ans<<endl;
+
+    return 0;
+}
