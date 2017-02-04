@@ -1,0 +1,43 @@
+#include <iostream>
+#include <vector>
+#include <iomanip>
+#include <cstdio>
+using namespace std;
+typedef long long ll;
+vector <int> adj[100000];
+
+int main()
+{
+   int n;int p;
+   cin>>n>>p;
+   for(int i=0;i<n;i++){
+   int x1,x2;
+   cin>>x1>>x2;
+    adj[i].push_back(x1);
+    adj[i].push_back(x2);
+   }
+   float sum=0;
+   for(int i=1;i<=n;i++){
+    int x1=i%n;//1
+    int x2=(i+1)%n;//2
+   // for(int j=0;j<adj[x1].size();j++)
+   int l1=adj[x1][0];int r1=adj[x1][1];
+  // cout<<"l1 is "<<l1<<" r1 is "<<r1<<endl;
+   int l2=adj[x2][0];int r2=adj[x2][1];
+  // cout<<"l2 is "<<l2<<" r2 is "<<r2<<endl;
+   int a1=(r1/p)-((l1-1)/p);
+  // cout<<" a1 is "<<a1<<endl;
+   int a2=(r2/p)-((l2-1)/p);
+  // cout<<"a2 is "<<a2<<endl;
+   int n1=(r1-l1+1-a1);int n2=(r2-l2+1-a2);
+  // cout<<" n1 is "<<n1<<"n2 is "<<n2<<endl;
+   float p1=(float)n1/(float)(r1-l1+1);
+   float  p2=(float)n2/(float)(r2-l2+1);
+  // cout<<" p1 is "<<p1<<" p2 is "<<p2<<endl;
+    float pro=1-(p1*p2);
+   sum+=pro;
+    }
+    float ans=sum*2000;
+   printf("%6f",ans);
+
+   }
