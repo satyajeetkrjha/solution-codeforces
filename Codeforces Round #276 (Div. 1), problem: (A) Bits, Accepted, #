@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+__int64 l, r;
+void solve(){
+		while((l|(l+1))<=r){
+ 		l=l|(l+1);
+ 		//cout<<" l is "<<l<<endl;
+ 		//cout<<__builtin_popcount(l)<<endl;
+	 }
+	printf("%I64d\n",l);
+}
+ int main(){
+ 	 int n;
+    //cin>>n;
+    scanf("%d",&n);
+    for(int i=1;i<=n;i++){
+    	
+    	scanf("%I64d %I64d",&l,&r);
+        solve();
+    }
+    
+}
