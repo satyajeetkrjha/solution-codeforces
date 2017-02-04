@@ -1,0 +1,36 @@
+#include <iostream>
+#include <cstdio>
+typedef long long ll;
+int main (){
+ll n;
+scanf("%lld",&n);
+ll sumofcards=0;
+ll r=1;ll f=0;
+while(sumofcards<=n){
+    sumofcards+=3*r-1;
+    r++;
+    if(sumofcards<=n)
+        f++;
+}
+//printf("f is %lld \n",f);
+if(n%3==1){// 16
+    while(f%3!=2 && f>0)
+        f--;
+}
+if(n%3==0){
+    while(f%3!=0 && f>0)
+        f--;
+}
+if(n%3==2){
+    while(f%3!=1&& f>0)
+        f--;
+}
+//printf("f  after reducing is %lld\n",f);
+ll c=0;
+while(f>0)
+{
+    f=f-3;
+    c++;
+}
+printf("%lld",c);
+}
