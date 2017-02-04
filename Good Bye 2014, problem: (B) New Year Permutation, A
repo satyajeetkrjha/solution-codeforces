@@ -1,0 +1,20 @@
+
+By satya_jha, contest: Good Bye 2014, problem: (B) New Year Permutation, Accepted, #
+ #include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+int a[305];
+int arr[305];
+char matrix[305][305];
+vector <int> adj[305];
+vector <int> comp;
+bool visited[305];
+void dfs(int u){
+  if(visited[u]){
+    return;
+  }
+visited[u]=true;
+comp.push_back(u);
+ for(int i=0;i<adj[u].size();i++){
+   int v=adj[u][i];
