@@ -1,0 +1,57 @@
+#include <iostream>
+#include <vector>
+#include <cstdio>
+using namespace std;
+vector <int > adj[100];
+bool visited[100];
+typedef long long ll;
+void find_components(int u){
+if(visited[u]==true){
+    return;
+}
+//cout<<"visited[u] "<<visited[u]<<endl;
+visited[u]=true;
+//cout<<"visited[u] after marking true"<<visited[u]<<endl;
+   for(int i=0;i<adj[u].size();i++){
+       // cout<<" i is "<<i<<endl;
+       // cout<<"adj[u].size() "<<adj[u].size()<<endl;
+    int v=adj[u][i];
+    if(!visited[v])
+   // cout<<" v is "<<v<<endl;
+   //cout<<" dfs(v) with v as "<<v<<endl;
+    find_components(v);
+
+
+   }
+}
+
+int main()
+{
+    int n,m;
+    scanf("%d %d",&n,&m);
+    for(int i=0;i<m;i++)
+   {
+       int u,v;
+       scanf("%d %d",&u,&v);
+       adj[u].push_back(v);
+       adj[v].push_back(u);
+   }
+   for(int u=1;u<=n;u++)
+    visited[u]=false;
+   int connected=0;
+   for(int u=1;u<=n;u++){
+    if(!visited[u])// not visited
+        connected+=1;
+       // cout<<"  node u is "<<u<<endl;
+        find_components(u);
+   }
+ //cout<<connected<<endl;
+  ll d=n-connected;
+  //cout<<" d is "<<d<<endl;
+    ll x=1LL;
+ for(ll i=1;i<=d;i++)
+    x=x*2;
+    printf("%lld \n",x);
+  //cout<<x<<endl;
+    return 0;
+}
