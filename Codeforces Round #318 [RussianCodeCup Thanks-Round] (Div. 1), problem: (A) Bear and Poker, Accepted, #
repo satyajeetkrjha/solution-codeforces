@@ -1,0 +1,46 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int t[1005*1005];
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    for(int i = 1; i <= n; ++i) {
+        scanf("%d", &t[i]);
+    }
+    int x = t[1];
+    for(int i = 2; i <= n; ++i)
+        x = __gcd(x, t[i]);
+        //cout<<"GCD IS "<<x<<endl;
+    while(x % 2 == 0){
+           // cout<<" x before division by 2 "<<x<<endl;
+      x /= 2;
+   // cout<<" x after division by 2 "<<x<<endl;
+    }
+    while(x % 3 == 0){
+         //cout<<" x before division by 3 "<<x<<endl;
+      x /= 3;
+   // cout<<" x after division by 3 "<<x<<endl;
+    }
+    //cout<<" x finally "<<x<<endl;
+    for(int i = 1; i <= n; ++i) {
+        int two = 1, three = 1;
+        while(t[i] % (two * 2) == 0){
+           two *= 2;
+
+        }
+        //cout<<"total two is "<<two<<endl;
+        while(t[i] % (three * 3) == 0)
+        {
+            three *= 3;
+        }
+       // cout<<"total three is "<<three<<endl;
+        if(x * two * three != t[i]) {
+            puts("No");
+            return 0;
+        }
+    }
+    puts("Yes");
+    return 0;
+}
