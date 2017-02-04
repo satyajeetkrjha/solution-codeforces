@@ -1,0 +1,14 @@
+#include <bits/stdc++.h>
+using namespace std;
+//int dist[1000005];
+//int val[5]={1,2,3,4,5};
+int main(){
+	//memset(dist,-1,sizeof(dist));
+	int x;
+	cin>>x;
+//celing  of a/b is (a+b-1)/b
+cout<<(x+5-1)/5<<endl;
+	
+
+	
+}
