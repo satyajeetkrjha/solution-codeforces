@@ -1,0 +1,18 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+typedef long long ll;
+int a[100005];
+int main()
+{
+   int n;cin>>n;
+   for(int i=1;i<=n;i++)
+    cin>>a[i];
+   sort(a+1,a+n+1);
+   ll sum=0;
+   for(int i=1;i<=n-1;i++)
+    sum+=a[i];
+   ll val=a[n]-sum+1;
+   cout<<val<<endl;
+    return 0;
+}
