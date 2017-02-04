@@ -1,0 +1,20 @@
+#include <iostream>
+#include <cstdio>
+using namespace std;
+int main(){
+string s1[25]={ "zero","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"};//0 to 19
+string s2[25]={"twenty","thirty","forty","fifty","sixty","seventy","eighty","ninety"};
+int n;
+cin>>n;
+if(n<20)
+cout<<s1[n]<<endl;
+else{
+int quot=n/10;//85/10=8=s2[6]
+int rem=n%10;
+if(rem!=0)
+cout<<s2[quot-2]<<"-"<<s1[rem]<<endl;
+else
+cout<<s2[quot-2];
+
+}
+}
