@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string.h>
+#include <algorithm>
+using namespace std;
+string maxim,minim;
+int main(){
+int l,sum;// length and sum
+cin>>l>>sum;
+if(l==0 ||(l>1 && sum==0) ||sum>9*l)
+cout<<"-1"<<" -1"<<endl;
+else{
+for(int i=0;i<l;i++){
+if(sum>9){
+maxim+='9';
+sum-=9;
+}
+else{
+maxim+=sum+'0';
+sum=0;
+}
+}
+//cout<<"maxim is "<<maxim<<endl;
+minim=maxim;
+int pos=0;
+reverse(minim.begin(),minim.end());
+for(int i=0;i<minim.length();i++){
+if(minim[i]!='0'){
+    pos=i;
+    break;
+}
+}
+if(pos!=minim.length())
+minim[pos]--;minim[0]++;
+cout<<minim<<" "<<maxim<<endl;
+}
+}
+
+
+
