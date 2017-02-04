@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+bool check(int r,char c){
+    if(r<1 || r>8 || c<'a' || c>'h')
+        return false;
+    return true;
+}
+int main()
+{
+  string s;
+  cin>>s;
+  int r=s[1]-'0';// row
+ // cout<<"x is "<<x<<endl;
+  char c=s[0];// column
+  int c1=0;
+       if(check(r,c+1)) c1++;
+       if(check(r,c-1)) c1++;
+       if(check(r+1,c)) c1++;
+       if(check(r-1,c)) c1++;
+       if(check(r-1,c-1)) c1++;
+       if(check(r-1,c+1)) c1++;
+       if(check(r+1,c+1)) c1++;
+       if(check(r+1,c-1)) c1++;
+       cout<<c1<<endl;
+
+
+
+
+    return 0;
+}
