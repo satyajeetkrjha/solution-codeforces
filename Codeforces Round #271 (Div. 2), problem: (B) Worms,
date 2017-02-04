@@ -1,0 +1,24 @@
+#include <iostream>
+
+using namespace std;
+int a[1000001]; int c=1;
+int main()
+{
+    int n;cin>>n;
+    int x;
+    for(int i=1;i<=n;i++){
+        cin>>x;
+        for(int j=1;j<=x;j++){
+            a[c]=i;
+            c++;
+    }
+    }
+    int m;cin>>m;
+    for(int i=1;i<=m;i++)
+    {
+        int z;
+        cin>>z;
+        cout<<a[z]<<endl;
+    }
+    return 0;
+}
