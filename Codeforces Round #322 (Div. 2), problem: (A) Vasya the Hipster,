@@ -1,0 +1,13 @@
+#include <iostream>
+#include <cstdio>
+#include <stdlib.h>
+using namespace std;
+int main(){
+int a,b;
+cin>>a>>b;
+int m=min(a,b);
+int d=abs(a-b);
+cout<<m<<" ";
+int p=d/2;
+cout<<p;
+}
