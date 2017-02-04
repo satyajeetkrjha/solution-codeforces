@@ -1,0 +1,29 @@
+#include <iostream>
+#include <cstdio>
+using namespace std;
+#define M 10000000
+typedef long long ll;
+ll sum=0;
+ll a[M];
+int main()
+{
+    ll n,A;// no of dices and sum A
+    scanf("%lld %lld",&n,&A);
+    for(ll i=0;i<n;i++){
+        scanf("%d",&a[i]);
+        sum+=a[i];
+    }
+    //cout<<" sum = "<<sum<<endl;;
+    for(ll i=0;i<n;i++){
+      // least amount i hv to pay
+      ll least=max(1LL,A-(sum-a[i]));
+     // cout<<"least i hv to pay "<< least<<endl;
+    // max amount i hv to pay
+    ll maxamount=min(a[i],A-(n-1));
+    //cout<<" max i have tpo pay "<<maxamount<<endl;
+    ll rangefound=a[i]-(maxamount-least+1);
+    cout<<rangefound<<endl;
+
+    }
+    return 0;
+}
