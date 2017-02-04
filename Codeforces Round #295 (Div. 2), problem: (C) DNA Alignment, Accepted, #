@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+int ar[4];
+int  big=1000000007;
+int main()
+{
+  int n;
+  cin>>n;
+  string s;
+  cin>>s;
+  for(int i=0;i<s.length();i++){
+    if(s[i]=='A')
+        ar[0]++;
+    if(s[i]=='C')
+        ar[1]++;
+        if(s[i]=='G')
+            ar[2]++;
+        if(s[i]=='T')
+           ar[3]++;
+   }
+   sort(ar,ar+4);
+   int x=ar[3];
+   int sum=0;
+  // cout<<" x is "<<x<<endl;
+   for(int i=0;i<4;i++){
+        //cout<<"ar[i] from 0 to 3 are"<<ar[i]<<endl;
+    if(ar[i]==x)
+    sum++;
+   }
+   //cout<<" sum is "<<sum<<endl;
+  ll val=1LL;
+  for(int i=1;i<=n;i++){
+    val=(val*sum)%big;
+  }
+   cout<<val<<endl;
+    return 0;
+}
