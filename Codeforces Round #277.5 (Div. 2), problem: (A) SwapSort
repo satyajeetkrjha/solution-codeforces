@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+int a[1000000];
+int b[1000000];
+int main(){
+	int n;
+	cin>>n;
+	for(int i=0;i<n;i++){
+		cin>>a[i];
+		b[i]=a[i];
+	}
+	sort(b,b+n);
+	cout<<n<<endl;
+	for(int i=0;i<n;i++){
+		for(int j=i;j<n;j++){
+			if(b[i]==a[j]){
+				cout<<i<<" "<<j<<endl;
+				swap(a[i],a[j]);
+				break;
+			}
+			
+		}
+	}
+	
+return 0;
