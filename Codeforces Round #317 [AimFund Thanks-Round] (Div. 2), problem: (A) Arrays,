@@ -1,0 +1,32 @@
+#include <iostream>
+#include <cstdio>
+using namespace std;
+int a[1000000];
+int b[1000000];
+int main(){
+int na,nb;
+cin>>na>>nb;
+
+int k,m;
+cin>>k>>m;
+for(int i=1;i<=na;i++)
+    cin>>a[i];
+for(int i=1;i<=nb;i++)
+    cin>>b[i];
+    int v=0;
+for(int i=m;i>=1;i--){
+    if(b[nb]>a[k]){
+        v++;
+        //cout<<" v increased "<<endl;
+        //cout <<" b[nb] ="<<b[nb]<<endl;
+        //cout <<"a[k] ="<<a[k]<<endl;
+    }
+ nb--;
+
+}
+
+if(v==m)
+    cout<<"YES"<<endl;
+else
+    cout<<"NO"<<endl;
+}
