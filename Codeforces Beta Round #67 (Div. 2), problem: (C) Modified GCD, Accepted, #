@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+vector <int> d;
+int main(){
+
+	int a,b;
+	scanf("%d%d",&a,&b);
+	int g=__gcd(a,b);
+    for (int i=1;i*i<=g;i++){
+        if(g%i==0){
+        d.push_back(i);
+        //cout<<" i is "<<i<<endl;
+        }
+        if(g/i!=i && g%i==0){
+        d.push_back(g/i);
+        //cout<<"g/ i is "<<g/i<<endl;
+        }
+
+    }
+   /* for(int i=0;i<d.size();i++)
+        cout<<d[i]<<" ";
+    cout<<endl;*/
+    int q;
+    scanf("%d",&q);
+    while(q--){
+    int l,r;
+    cin>>l>>r;
+    int maxi=-1;
+    for(int i=0;i<d.size();i++){
+    if(l<=d[i] && d[i]<=r)
+    maxi=max(maxi,d[i]);
+    }
+    cout<<maxi<<endl;
+    }
+
+
+
+}
