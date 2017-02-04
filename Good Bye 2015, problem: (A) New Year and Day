@@ -1,0 +1,28 @@
+#include <iostream>
+#include <cstdio>
+using namespace std;
+int main(){
+int t;
+string  a,b;
+cin>>t>>a>>b;
+if (b[0]=='w'){
+    if(t==5 || t==6){
+        cout<<53<<endl;
+    }
+        else
+            cout<<52<<endl;
+
+}
+else{
+    if(t<=29)
+        cout<<12<<endl;
+     if(t==31)
+        cout<<7<<endl;
+     if(t==30)
+        cout<<11<<endl;
+}
+
+
+return 0;
+
+}
