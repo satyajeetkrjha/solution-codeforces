@@ -1,0 +1,41 @@
+#include <iostream>
+#include <cstdio>
+using namespace std;
+
+int main()
+{
+    string val="";
+   string s, t;
+   cin>>s;
+   cin>>t;
+   int m=1;
+   for(int i=0;i<s.length();i++){
+    if(s[i]==t[i])
+        val+=s[i];
+    else{
+       if(m%2==1){
+        val+=s[i];
+        //cout<<" val after s[i] "<<val<<endl;
+        //cout<<" m is in s[i] "<<m<<endl;
+        m++;
+
+       }
+        else{
+            val+=t[i];
+            //cout<<" val after s[t] "<<val<<endl;
+            //cout<<" m after s[t] "<<m<<endl;
+            m++;
+        }
+    }
+   }
+   m=m-1;
+   //cout<<"string size"<<val.size()<<endl;
+   //cout<<" m is "<<m<<endl;
+    if(m%2==0)
+        cout<<val<<endl;
+        else
+            cout<<"impossible"<<endl;
+
+
+    return 0;
+}
