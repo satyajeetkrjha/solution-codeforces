@@ -1,0 +1,16 @@
+#include<cstdio>
+#include<set>
+using namespace std;
+set<double>se;
+int main()
+{
+    int n,a,b,c,d;bool bl=0;
+    scanf("%d%d%d",&n,&a,&b);
+    while(n--)
+    {
+        scanf("%d%d",&c,&d);
+        if(b==d)bl=1;
+        else se.insert((double)(a-c)/(b-d));
+    }
+    printf("%d\n",se.size()+bl);
+}
