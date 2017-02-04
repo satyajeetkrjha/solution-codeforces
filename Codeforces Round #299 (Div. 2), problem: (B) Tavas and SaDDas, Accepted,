@@ -1,0 +1,39 @@
+#include <iostream>
+#include <cstdio>
+using namespace std;
+int fun(string s){
+    int p=0;
+    int sum=0;
+for(int i=s.length()-1;i>=0;i--){
+    int x=s[i]-'0';
+    int v=x<<p;
+    sum+=v;
+    p++;
+}
+return sum;
+}
+int main()
+{
+    string n;
+    cin>>n;
+    string bi="";
+    int l=n.length();
+   // cout<<" length is "<<l<<endl;
+    int bsum=0;
+    int up=1;
+    for(int i=0;i<l;i++){
+        if(n[i]=='7')
+            bi+='1';
+            else
+                bi+='0';
+                if(up<l)
+                bsum+=1<<(up);
+                up++;
+
+    }
+    //cout<<"bi is "<<bi<<endl;
+   // cout<<"bsum is "<<bsum<<endl;
+   // cout<<"fun(bi) "<<fun(bi)<<endl;
+    cout<<bsum+fun(bi)+1<<endl;
+    return 0;
+}
