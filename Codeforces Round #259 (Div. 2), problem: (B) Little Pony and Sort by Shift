@@ -1,0 +1,26 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int a[100000];
+int main(){
+int n;cin>>n;
+int co=0;
+int pos=0;
+for(int i=1;i<=n;i++)
+    cin>>a[i];
+    for(int i=2;i<=n;i++){
+        if(a[i-1]>a[i]){
+            co++;
+            pos=i;
+        }
+        if(co>=2)
+            break;
+    }
+if(co==1 && a[1]>=a[n])
+    cout<<n-pos+1<<endl;
+else if (co==0)// already sorted
+    cout<<0<<endl;
+else
+    cout<<-1<<endl;
+
+}
