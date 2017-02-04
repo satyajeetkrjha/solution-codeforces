@@ -1,0 +1,15 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+int main()
+{
+    // d, L, v1, v2
+float d,l,v1,v2;
+cin>>d>>l>>v1>>v2;
+float num=l-d;
+float den=v1+v2;
+float ans=num/den;
+//double f =3.14159;
+ // std::cout << std::setprecision(5) << f << '\n';
+cout<<setprecision(7)<<ans;
+}
