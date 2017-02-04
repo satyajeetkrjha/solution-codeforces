@@ -1,0 +1,21 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+int main()
+{
+    ll n,a,b,p,q;
+    scanf("%lld%lld%lld%lld%lld",&n,&a,&b,&p,&q);
+    ll sum=0;
+    ll lcm=a*b/__gcd(a,b);
+    //cout<<"lcm is "<<lcm<<endl;
+    int n1=n/lcm;
+    //cout<<"n1 is "<<n1<<endl;
+    sum+=n1*max(p,q);
+    //cout<<" sum is "<<sum<<endl;
+    int n2=n/a;
+    int n3=n/b;
+    //cout<<"n2 and n3 are "<<n2<<" "<<n3<<endl;
+    sum+=(n2-n1)*p+(n3-n1)*q;
+    printf("%lld\n",sum);
+    return 
