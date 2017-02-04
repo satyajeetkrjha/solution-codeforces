@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+int a[30];
+int main(){
+string s;cin>>s;
+int k;cin>>k;
+for(int i=0;i<26;i++)
+    cin>>a[i];
+int mx=a[0];
+for(int i=0;i<26;i++){
+    if(a[i]>mx)
+        mx=a[i];
+}
+//cout<<" mx is "<<mx<<endl;
+int sum1=0;
+for(int i=0;i<s.size();i++)
+    sum1+=a[s[i]-'a']*(i+1);
+//cout<<"sum1 is "<<sum1<<endl;
+int co=s.size()+k;
+int sum2=0;
+while(co>s.size()){
+            sum2+=co*mx;
+co--;
+}
+cout<<sum2+sum1<<endl;
+}
