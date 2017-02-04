@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+int i;
+int main(){
+	int n;
+	cin>>n;
+	if(n<=3){
+		cout<<"NO"<<endl;
+		return 0;
+	}
+	else{
+		cout<<"YES"<<endl;
+		for( i=n;i>5;i=i-2){
+			cout<<i<<" - "<<i-1<<" = "<<1<<endl;
+			cout<<"1 * 1 = 1"<<endl;
+		}
+		if (i==4){
+			cout<<"4 * 3 = 12"<<endl;
+			cout<<"12 * 2 = 24"<<endl;
+			cout<<"1 * 24 = 24"<<endl;
+		}
+		if(i==5){
+			cout<<"5 * 4 = 20"<<endl;
+			cout<<"20 + 3 = 23"<<endl;
+			cout<<"23 + 2 = 25"<<endl;
+			cout<<"25 -1 = 24"<<endl;
+		}
+		return 0;
+	}
+	
+}
