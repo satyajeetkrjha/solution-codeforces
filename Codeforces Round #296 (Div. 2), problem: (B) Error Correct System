@@ -1,0 +1,46 @@
+#include <iostream>
+#include <cstdio>
+using namespace std;
+int arr[200][200];
+int ham=0;
+int main()
+{
+    int n;cin>>n;
+    string s,t;
+    cin>>s>>t;
+    for(int i=0 ;i<n;i++){
+        if(s[i]!=t[i]){
+        arr[s[i]][t[i]]=i+1;
+        ham++;
+    }
+    }
+    for(char i='a';i<='z';i++){
+        for(char j=i+1;j<='z';j++){
+            if(arr[i][j] &&arr[j][i]){
+            //cout<<" caught1"<<endl;
+            cout<<ham-2<<endl;
+            cout<<arr[i][j]<<" "<<arr[j][i]<<endl;;
+            return 0;
+
+        }
+        }
+    }
+    for(char i='a';i<='z';i++){
+        for(char j='a';j<='z';j++){
+            for(char k='a';k<='z';k++){
+                if(arr[i][j] && arr[j][k]){
+                       // cout<<"caught2"<<endl;
+                    cout<<ham-1<<endl;
+                cout<<arr[i][j]<<" "<<arr[j][k]<<endl;
+                return 0;
+            }
+        }
+    }
+    }
+  cout<<ham<<endl;
+  cout<<"-1 -1"<<endl;
+
+
+
+
+    return 0;
