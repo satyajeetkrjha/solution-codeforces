@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+ll a[1000000];
+int main(){
+	ll n;
+	ll x1=1e9+5;
+	ll x2=-100000;
+  scanf("%lld",&n);
+	for(int i=0;i<n;i++){
+	ll x;
+	scanf("%lld",&x);
+	a[i]=x;
+		x1=min(x,x1);
+		x2=max(x2,x);
+	}
+	ll c1=0;
+	ll c2=0;
+	for(ll i=0;i<n;i++){
+		if(a[i]==x1) c1++;
+		if(a[i]==x2) c2++;
+	}
+	if(x1==x2)
+	cout<<0<<" "<<(n*(n-1))/2<<endl;
+	else
+	cout<<x2-x1<<" "<<c1*c2<<endl;
+	
+	
+}
