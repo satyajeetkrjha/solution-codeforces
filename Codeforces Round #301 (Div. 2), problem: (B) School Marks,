@@ -1,0 +1,39 @@
+#include <iostream>
+#include <cstdio>
+using namespace std;
+int  val[1000];
+int main()
+{
+    int n,k,p,x,y;
+    cin>>n>>k>>p>>x>>y;
+    int sum=0;
+    int a=0;
+    int b=0;
+    int t;
+    for(int i=1;i<=k;i++){
+       cin>> a;
+        sum+=a;
+       if(a<y)
+        a++;// 3=1
+        else
+            b++;// 4 5 =2 numbers greater>=y for y to be median
+    }
+    for(int i=0;i<n-k;i++){
+        if(b<(n+1)/2)
+        {
+            val[i]=y;
+            b++;
+            sum+=y;
+    }
+    else{
+        val[i]=1;
+        sum+=1;
+    }
+    }
+    if(sum>x || b<(n+1)/2 )
+        cout<<-1<<endl;
+        else
+        {
+            for(int i=0;i<n-k;i++)
+                cout<<val[i]<<" ";
+        }
