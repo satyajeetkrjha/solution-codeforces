@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long int ll;
+set <ll> s;
+ll a[100005];
+int main(){
+ll  n,k;
+	cin>>n>>k;
+	for(ll i=1;i<=n;i++){
+		ll x;
+		cin>>x;
+		a[i]=x;
+	}
+		sort(a+1,a+n+1);
+		
+		for(int i=1;i<=n;i++){
+         ll x=a[i];
+		if(x%k!=0)
+		s.insert(x);
+		else{
+			if(s.count(x/k)==0){
+				s.insert(x);
+			}
+		}
+	}
+	cout<<s.size()<<endl;
+	return 0;
+}
