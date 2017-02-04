@@ -1,0 +1,14 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+int main(){
+	ll n;
+	scanf("%lld",&n);
+	if(n%2==0)
+	cout<<n/2<<endl;
+	else{
+		n=n+1;
+		cout<<n/2*-1<<endl;
+	}
+	
+}
