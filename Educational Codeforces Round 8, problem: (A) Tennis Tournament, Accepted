@@ -1,0 +1,19 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+int n,b,p;//5 2 3
+cin>>n>>b>>p;
+int sum=0;
+int val=n*p;
+while(n/2!=0){
+        int x=n%2;
+    n=n/2;
+    sum+=n*((2*b)+1);
+    n=n+x;
+}
+cout<<sum<<" "<< val<<endl;
+    return 0;
+}
