@@ -1,0 +1,35 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+int c[200005]={0};
+int a[200005];
+int main(){
+
+int n,m;
+scanf("%d%d",&n,&m);
+for(int i=1;i<=n;i++){
+	scanf("%d",&a[i]);
+	if(a[i]==a[i-1])
+		c[i]=c[i-1];
+	else
+		c[i]=i-1;
+}
+for(int i=1;i<=m;i++){
+	int l,r,x;
+	scanf("%d%d%d",&l,&r,&x);
+	if(a[r]!=x){
+		printf("%d\n",r);
+		//cout<<r<<endl;
+	}
+	else{
+		if(c[r]>=l){
+    	printf("%d\n",c[r]);
+		//cout<<c[r]<<endl;
+		}
+		else{
+			cout<<-1<<endl;
+		}
+	}
+}
+
+}
