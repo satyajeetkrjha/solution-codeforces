@@ -1,0 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	string s,t;
+	cin>>s>>t;
+	int n4=0;int n7=0;
+	for(int i=0;i<s.size();i++){
+		if(s[i]!=t[i]){
+			if(s[i]=='4'){
+				n4++;
+			}
+			if(s[i]=='7'){
+				n7++;
+			}
+		}
+	}
+	cout<<max(n4,n7)<<endl;
+	
+	
+}
