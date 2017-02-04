@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+typedef long long ll;
+
+int main()
+{
+    ll n;
+    ll sum;
+    cin>>n;
+        sum=((n+1)*n)/2;
+       cout<<(sum*6)+1LL<<endl;
+
+
+    return 0;
+}
