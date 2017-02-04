@@ -1,0 +1,30 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <set>
+using namespace std;
+vector <int> userNumbers;
+int main()
+{
+    set<int> a;
+    int n;
+    cin>>n;
+    for(int i=0;i<n;i++){
+    int x;
+    cin>>x;
+        userNumbers.push_back(x);
+    }
+    sort(userNumbers.begin(), userNumbers.end());
+    long long  ans=0;
+for(int i = 0; i < userNumbers.size() ; i++) {
+       int x=userNumbers[i];
+      while(a.count(x)==1){
+        x--;
+      }
+      if(x>0){
+        a.insert(x);
+      ans+=x;
+}
+}
+    cout<<ans;
+}
