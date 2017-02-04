@@ -1,0 +1,32 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+int m=0;
+int c=0;
+int main()
+{
+   int n;
+   cin>>n;
+   for(int i=1;i<=n;i++){
+    int x,y;
+    cin>>x>>y;
+    if(x>y)
+        m++;
+    else if(y>x)
+        c++;
+        else
+    {
+        m++;
+        c++;
+    }
+
+   }
+   if(m>c)
+    cout<<"Mishka"<<endl;
+   else if (c>m)
+    cout<<"Chris"<<endl;
+   else
+    cout<<"Friendship is magic!^^"<<endl;
+   //else if (m>c)
+    return 0;
+}
