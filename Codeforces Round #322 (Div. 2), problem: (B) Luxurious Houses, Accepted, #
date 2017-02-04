@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+int a[100000];
+int b[100000];
+int p;
+int main()
+{
+   int n;
+   cin>>n;
+   for(int i=1;i<=n;i++){
+    cin>>a[i];
+   }
+   for(int j=n;j>=1;j--){
+    if(a[j]>a[p]){
+        p=j;
+    }
+    else
+        b[j]=a[p]-a[j]+1;
+   }
+   for(int i=1;i<=n;i++)
+    cout<<b[i]<<" ";
+
+    return 0;
+}
