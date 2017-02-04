@@ -1,0 +1,19 @@
+import java.util.Scanner;
+public class multiple {
+	public static void main(String[] args) {
+		Scanner in =new Scanner(System.in);
+		int k=in.nextInt();int n=in.nextInt();int w=in.nextInt();
+	int sum=0;
+	for(int i=1;i<=w;i++){
+		sum+=k*i;	
+	}
+	//System.out.println("sum is "+sum);
+	if(sum<=n)
+		System.out.println(0);
+		else
+	System.out.println(sum-n);
+	
+
+	}
+
+}
