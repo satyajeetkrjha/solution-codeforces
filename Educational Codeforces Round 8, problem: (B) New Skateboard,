@@ -1,0 +1,47 @@
+#include <cstdio>
+#include <iostream>
+#include <cstring>
+#include <string>
+using namespace std;
+typedef long long ll;
+char a[300000];
+bool valuefunnction(string s){
+    int digit1=s[0]-'0';
+    int digit2=s[1]-'0';//24=2*10+4
+    int val=(digit1*10)+digit2;
+    if(val%4==0)
+        return true;
+        else
+            return false;
+
+    }
+
+
+
+int main()
+{
+
+    scanf("%s",&a);
+   string  s=string(a);
+    ll sum=0;
+    int len=s.length();//1234 is 4
+        for(int i=0;i<len;i++){//
+        int x=s[i]-'0';
+        //cout<<x<<endl;
+       if(x%4==0)// all unit ones covered
+        sum++;
+        }
+      // cout<<" sum of unit ones "<<sum <<endl;
+
+        for(int j=s.length()-1;j>0;j--){// j is 3 to 0
+            string sub=s.substr(j-1,2);
+          //  cout<<sub<<endl;
+            if(valuefunnction(sub)==true){
+                   // cout<<" j is "<<j<<endl;
+                sum+=j;
+            //cout<<" sum on adding j is "<<sum<<endl;
+        }
+        }
+         printf("%lld",sum);
+    return 0;
+}
